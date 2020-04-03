@@ -47,6 +47,7 @@ class Solution:
                     res = max(res,i-index)
                 index = i
         return res
+        
 if __name__ == "__main__":
     N = 5
     result = Solution().binaryGap(N)
