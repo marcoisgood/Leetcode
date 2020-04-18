@@ -41,7 +41,6 @@ class Solution:
             if key not in hashmap:
                 hashmap[key] = [w]
             else:
-
                 hashmap[key].append(w)
 
         return hashmap.values()

@@ -17,11 +17,7 @@ class Solution:
     def longestPalindrome(self, s):
         res = ""
         for i in range(len(s)):
-            print("s,i,i",i,i,self.helper(s,i,i))
-            print("s,i,i+1",i,i+1,self.helper(s,i,i+1))
             res = max(self.helper(s,i,i), self.helper(s,i,i+1), res, key=len)
-            print(res)
-
         return res
 
     def helper(self,s,l,r):

@@ -31,4 +31,4 @@ class Solution:
 if __name__ == "__main__":
     nums =[2,2,1]
     result = Solution().singleNumber(nums)
-    print result
+    print(result)
