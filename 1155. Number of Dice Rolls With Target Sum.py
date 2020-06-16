@@ -45,45 +45,27 @@ class Solution:
         # Ans 1, DP-Bottom up
         # Time: O(df*target)
         # Space: O(d*target)
-        # M = 10**9 + 7
-        # dp = [[0 for x in range(target+1)] for y in range(d+1)]
-        # dp[0][0] = 1
-        # for i in range(1, d+1):
-        #     # it is the i times,
-        #     # Example,
-        #     # i = 1, when we roll the first dice.
-        #     # i = 2, when we roll the second dice
-        #     for j in range(i, target+1):
-        #         # j the total value of dices
-        #             lp = min(j, f)
-        #             # limitation of K, either biggest value of dice or j.
-        #             # example, d = 6, the value only from 1 to 6
-        #             # k is the possible value of the dice this time
-        #
-        #             for k in range(1, lp + 1):
-        #                 dp[i][j] += dp[i-1][j - k]
-        #
-        # print(dp)
-        # return dp[d][target] % M
+        M = 10**9 + 7
+        dp = [[0 for x in range(target+1)] for y in range(d+1)]
+        dp[0][0] = 1
+        for i in range(1, d+1):
+            # it is the i times,
+            # Example,
+            # i = 1, when we roll the first dice.
+            # i = 2, when we roll the second dice
+            for j in range(i, target+1):
+                # j the total value of dices
+                    lp = min(j, f)
+                    # limitation of K, either biggest value of dice or j.
+                    # example, d = 6, the value only from 1 to 6
+                    # k is the possible value of the dice this time
 
-            if target > f*d: return 0
-            if d == 1: return 1
+                    for k in range(1, lp + 1):
+                        dp[i][j] += dp[i-1][j - k]
 
-            mem = [[0]*d for _ in range(target)]
+        print(dp)
+        return dp[d][target] % M
 
-            for k in range(min(f,target)):
-                mem[k][0] = 1
-
-
-            for k in range(1,target):
-                for j in range(1,d):
-
-                    if mem[k-1][j-1] == 0:
-                        mem[k][j] = mem[k-1][j] - 1
-                    else:
-                        mem[k][j] = mem[k-1][j] + mem[k-1][j-1]
-
-            return mem[-1][-1]%(10**9+7)
 
 
 
