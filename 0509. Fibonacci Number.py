@@ -26,7 +26,7 @@ Explanation: F(4) = F(3) + F(2) = 2 + 1 = 3.
 
 class Solution:
     def fib(self, N):
-        # first solution
+        # # first solution
         # if N == 0: return 0
         # if N == 1: return 1
         # if N == 2: return 1
@@ -35,9 +35,9 @@ class Solution:
         # for i in range(N):
         #     pre, curr = curr, curr+pre
         #
-        # return curr
+        # return pre
 
-        #Second Solution, using dp
+        # #Second Solution, using dp
 
         def dp(n, memo):
             if memo[n] != None:
@@ -51,6 +51,27 @@ class Solution:
         memo = [None for i in range(N+1)]
         memo[0] = 0
         return dp(N, memo)
+        
+        # # 3. normal recursive:
+        # if N == 0: return 0
+        # if N == 1: return 1
+        #
+        # if N > 1:
+        #     return self.fib(N-1) + self.fib(N-2)
+
+
+
+        # # 4 iterative
+        # f = [0, 1]
+        # if N == 0:
+        #     return f[0]
+        # elif N == 1:
+        #     return f[1]
+        # else:
+        #     for i in range(2, N+1):
+        #         f.append(f[i-2]+f[i-1])
+        # return f[-1]
+
 
 if __name__ == "__main__":
     N = 4
