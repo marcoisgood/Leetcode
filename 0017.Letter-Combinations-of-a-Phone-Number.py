@@ -34,8 +34,8 @@ class Solution:
                 for k in res:
                     tmp.append(k+j)
             res[:] = tmp[:]
+            print("tmp",tmp)
             tmp = []
-
         return res
 
 

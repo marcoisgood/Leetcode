@@ -17,15 +17,19 @@ Output:
 
 class Solution:
     def permute(self, nums):
-        res, path = [], []
-        self.dfs(nums, path, res)
+        if not nums: return []
+        res = []
+
+        def backtracking(array = nums[:], path = []):
+            if not array:
+                res.append(path)
+
+            for i in range(len(array)):
+                backtracking(array[i+1:]+array[:i], path+[array[i]])
+
+        backtracking()
+
         return res
-        
-    def dfs(self, nums, path, res):
-        if not nums:
-            res.append(path)
-        for i in range(len(nums)):
-            self.dfs(nums[i+1:]+nums[:i], path+[nums[i]], res)
 
 if __name__ == "__main__":
     nums = [1,2,3]

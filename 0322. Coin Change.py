@@ -18,12 +18,14 @@ class Solution:
     def coinChange(self, coins, amount):
 
         memo = [amount+1]*(amount+1)
+        print(memo)
         memo[0] = 0
 
         for i in range(len(memo)):
             for coin in coins:
                 if i >= coin:
                     memo[i] = min(memo[i], memo[i-coin]+1)
+                    print(memo)
 
         if memo[amount] == amount+1: return -1
 
@@ -33,7 +35,7 @@ class Solution:
 
 
 if __name__ == "__main__":
-    coins = [186,419,83,408]
-    amount = 6249
+    coins = [1,2,5]
+    amount = 11
     result = Solution().coinChange(coins, amount)
     print(result)
